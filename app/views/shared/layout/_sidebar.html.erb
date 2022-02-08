@@ -36,7 +36,9 @@
                 <%= agenda.title %>
                 <i class="right fa fa-angle-left"></i>
               </p>
-              <%= link_to 'delete', agenda_path(agenda), method: :destroy, data: { fonfirm: 'Are you sure?' }, style: 'padding: 2px 4px 2px 4px; margin-left: 5px; border: 1px solid white; color:#FFFFFF; display: inline', class: 'css_class' %>
+              <% if current_user == agenda.user || current_user == agenda.team.owner %>
+              <%= link_to 'delete', agenda_path(agenda), method: :delete, data: { fonfirm: 'Are you sure?' }, style: 'padding: 2px 4px 2px 4px; margin-left: 5px; border: 1px solid white; color:#FFFFFF; display: inline' %>
+              <% end %>
             </span>
             <ul class="nav nav-treeview" style="display: block;">
               <% agenda.articles.each do |article| %>
