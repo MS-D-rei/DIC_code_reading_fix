@@ -42,6 +42,9 @@
                       <td><%= image_tag 'default.jpg', size: '40x40' %></td>
                       <td><%= assign.user.email %></td>
                       <td><%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+                      <% if current_user == @team.owner && assign.user != current_user %>
+                      <td><%= link_to 'pass leader', pass_owner_team_path(assign.user), method: :post, class: 'btn btn-primary' %>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>
