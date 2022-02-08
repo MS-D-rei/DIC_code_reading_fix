@@ -31,6 +31,9 @@ gem 'seed-fu', '~> 2.3'
 # Authentication
 gem 'devise'
 
+# mailer
+gem 'rexml'
+
 group :development, :test do
   gem 'awesome_print'
   gem 'bullet'
